@@ -1,5 +1,7 @@
+import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 import React, { Component } from 'react';
 import { addMoviesToList ,handleMoviesSearch } from '../actions';
+import {storeContext} from '../index';
 
 export class Navbar extends Component {
 constructor(props){
@@ -51,5 +53,14 @@ this.setState({
     );
   }
 }
+  class NavbarWrapper extends React.Component  {
+    render() {
+      return (
+        <storeContext.Consumer>
+          {(store) =><Navbar dispatch={store.dispatch} search={this.props.search}></Navbar>}
+        </storeContext.Consumer>
+      )
+    }
+  }
 
-export default Navbar
+export default NavbarWrapper;

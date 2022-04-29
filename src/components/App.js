@@ -2,7 +2,8 @@ import React from 'react';
 import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
-import {addMovies ,setFavorites} from '../actions'
+import {addMovies ,setFavorites} from '../actions';
+import {storeContext} from '../index';
 
 
 class App extends React.Component {
@@ -36,6 +37,8 @@ onChangeTab =(value)=>{
 
 
   render() {
+  
+
     const {movies ,search } = this.props.store.getState();
     const {list ,favorites ,showFavorite} = movies;
     const displayMovies= showFavorite? favorites :list;
@@ -43,11 +46,11 @@ onChangeTab =(value)=>{
     //console.log("STATE",this.props.store.getState());
     return (
       <div className="App">
-        <Navbar  dispatch={this.props.store.dispatch} search={search} />
-        <div className="mains">
+        <Navbar dispatch={this.props.store.dispatch} search={search} />
+        <div className="main">
           <div className="tabs">
-            <div className={`tab ${showFavorite ?'' : 'action-tabs' }`} onClick={() =>this.onChangeTab(false)}>Movies</div>
-            <div className={`tab ${showFavorite ? 'action-tabs':'' }`}onClick={() => this.onChangeTab(true)}>Favorites</div>
+            <div  className={`tab ${showFavorite ? '' : 'active-tabs'}`} onClick={() =>this.onChangeTab(false)}>Movies</div>
+            <div className={`tab ${showFavorite ? 'active-tabs' : ''}`} onClick={() => this.onChangeTab(true)}>Favorites</div>
           </div>
           <div className="list">
             {displayMovies.map((movie,index) => (
@@ -64,5 +67,14 @@ onChangeTab =(value)=>{
   }
   
 }
+class AppWrapper extends React.Component {
+  render() {
+    return (
+  <storeContext.Consumer>
+    {(store) =><App store={store}></App>}
+  </storeContext.Consumer>
+    );
+  }
+}
 
-export default App
+export default AppWrapper

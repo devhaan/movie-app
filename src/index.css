@@ -11,7 +11,8 @@ body {
 }
 .nav {
   width: 100%;
-  background-image: linear-gradient(to right, rgb(202, 76, 76) , yellow);
+  background-image: linear-gradient(to right, hsl(0, 69%, 80%) , yellow);
+  box-shadow: 5px 5px 15px 15px rgb(199, 99, 66);
   height: 70px;
   padding: 10px;
   margin:0;
@@ -19,7 +20,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   position: fixed;
   top:0;
 }
@@ -32,9 +32,9 @@ body {
   font-size: 16px;
   padding: 0 10px;
   box-sizing: border-box;
-  background: rgb(241, 153, 76);
-
-  border: 6px double black;
+  
+  background-color: transparent;
+  border: 6px double rgb(148, 63, 63);
 }
 .search-container {
   position: relative;
@@ -103,7 +103,7 @@ body {
   width: 100%;
   margin: 0 auto;
   margin-top: 100px;
-  padding: 0 15px;
+  padding: 10px 20px 10px 15px;
   box-sizing: border-box;
 }
 .main .tabs {

@@ -21,7 +21,7 @@ handleUnFavoriteClick =() => {
     return (
       <div className="movie-card">
           <div className="left">
-            <img alt="movie-poster" src={movie.Poster} />
+            <img className="rounded" alt="movie-poster" src={movie.Poster} />
           </div>
           <div className="right">
               <div className="title">{movie.Title}</div>
@@ -29,8 +29,8 @@ handleUnFavoriteClick =() => {
               <div className="footer">
                   <div className="rating">{movie.imdbRating}</div>
                   {
-                    isFavorite ? <button className="unfavourite-btn" onClick={this.handleUnFavoriteClick}>UnFavourite</button>
-                  : <button className="favourite-btn" onClick={this.handleFavoriteClick}>Favourite</button>
+                    isFavorite ? <button className="btn btn-danger" onClick={this.handleUnFavoriteClick}>UnFavourite</button>
+                  : <button className="btn btn-primary" onClick={this.handleFavoriteClick}>Favourite</button>
                     
                   }
               </div>

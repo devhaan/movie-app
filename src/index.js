@@ -12,7 +12,7 @@ import rootReducer from './reducers';
 // const logger = function({dispatch,getState}) {
 //   return function(next) {
 //     return function (action) {
-//       //middleware call
+//       middleware call
 //         console.log('ACTION_TYPE',action.type);
 //         next(action);
 //     }

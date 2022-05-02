@@ -28,15 +28,20 @@ this.setState({
 
 
   render() {
-
+// isme mene bootstrap 5 use ki hai
     const {results:movie,showSearchResults} = this.props.search;
     return (
-      <div className="nav">
-          <div className="search-container">
-              <input onChange={this.handleChange}/>
-              <button id="search-btn" onClick={this.handleSearch}>Search</button>
+      
+        <nav class="navbar  navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+  <a class="navbar-brand" href="http://localhost:3000/movie-app"><h1 class="h1">LOGO</h1></a>
 
-              {showSearchResults && <div className="search-results">
+    <div class="collapse navbar-collapse justify-content-center" >
+      
+      <form class="d-flex ">
+        <input onChange={this.handleChange} class="form-control me-2" type="text" placeholder="Search" />
+        <button onClick={this.handleSearch} class="btn btn-primary" type="button">Search</button>
+		{showSearchResults && <div className="search-results">
                 <div className="search-result">
                   <img src={movie.Poster} alt="search-pic" />
                   <div className="movie-info">
@@ -48,8 +53,11 @@ this.setState({
                 </div>
               </div>
               }
-          </div>
-      </div>
+      </form>
+    </div>
+  </div>
+</nav>
+     
     );
   }
 }

@@ -34,7 +34,7 @@ this.setState({
       
         <nav class="navbar  navbar-expand-sm bg-dark navbar-dark fixed-top">
   <div class="container-fluid">
-  <a class="navbar-brand" href="http://localhost:3000/movie-app"><h1 class="h1">LOGO</h1></a>
+  <a class="navbar-brand" href="https://devhaan.github.io/movie-app/"><h1 class="h1">LOGO</h1></a>
 
     <div class="collapse navbar-collapse justify-content-center" >
       

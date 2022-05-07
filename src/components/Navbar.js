@@ -32,13 +32,15 @@ this.setState({
     const {results:movie,showSearchResults} = this.props.search;
     return (
       
-        <nav class="navbar  navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <nav class="navbar  navbar-expand-lg bg-dark navbar-dark fixed-top">
   <div class="container-fluid">
   <a class="navbar-brand" href="https://devhaan.github.io/movie-app/"><h1 class="h1">LOGO</h1></a>
-
-    <div class="collapse navbar-collapse justify-content-center" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
       
-      <form class="d-flex ">
+      <form class="d-flex  form-inline my-2 my-lg-0">
         <input onChange={this.handleChange} class="form-control me-2" type="text" placeholder="Search" />
         <button onClick={this.handleSearch} class="btn btn-primary" type="button">Search</button>
 		{showSearchResults && <div className="search-results">
@@ -57,6 +59,7 @@ this.setState({
     </div>
   </div>
 </nav>
+
      
     );
   }

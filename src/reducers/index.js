@@ -49,9 +49,14 @@ export  function movies (state = initialMOviesState ,action){
                 
             }
             case ADD_MOVIE_TO_LIST:
+            //prevent from duplicate movies with sam data
+            const filteredArray2 =state.list.filter(
+                movie => movie.Title !== action.movie.Title
+                                           );
+                //console.log("filtered array",filteredArray2);
             return{
                 ...state,
-                list:[action.movie,...state.list]
+                list:[action.movie,...filteredArray2]
             }
 
             default:

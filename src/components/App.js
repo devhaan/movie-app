@@ -7,19 +7,19 @@ import {storeContext} from '../index';
 
 
 class App extends React.Component {
-  componentDidMount(){
-//make api call
-// dispatch action
-const {store} = this.props;
+  componentDidMount() {
+              //make api call
+              // dispatch action
+              const {store} = this.props;
 
-store.subscribe(() => {
-  //console.log('UPDATED');
-  this.forceUpdate();
-})
+              store.subscribe(() => {
+                //console.log('UPDATED');
+                this.forceUpdate();
+              })
 
-store.dispatch(addMovies(data));
-//console.log("STATE",this.props.store.getState());
-  }
+              store.dispatch(addMovies(data));
+              //console.log("STATE",this.props.store.getState());
+                      }
 
   isMovieFavorite = (movie) =>{
   const {movies} = this.props.store.getState();
@@ -41,7 +41,7 @@ onChangeTab =(value)=>{
 
     const {movies ,search } = this.props.store.getState();
     const {list ,favorites ,showFavorite} = movies;
-    const displayMovies= showFavorite? favorites :list;
+    const displayMovies= showFavorite ? favorites : list;
     
     console.log("STATE",this.props.store.getState());
     return (

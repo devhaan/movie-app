@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addFavorites ,removeFavorites } from '../actions';
+import { addFavorites ,removeFavorites,deleteMovie } from '../actions';
 
 export class MovieCard extends Component {
 handleFavoriteClick =() => {
@@ -13,6 +13,10 @@ handleUnFavoriteClick =() => {
   this.props.dispatch(removeFavorites(movie));
   //console.log(" removed click fav",(movie));
  
+}
+handleDeleteClick = () =>{
+  const {movie } = this.props;
+  this.props.dispatch(deleteMovie(movie));
 }
 
   render() {
@@ -29,12 +33,15 @@ handleUnFavoriteClick =() => {
               <div className="footer">
                   <div className="rating">{movie.imdbRating}</div>
                   {
-                    isFavorite ? <button className="btn btn-danger" onClick={this.handleUnFavoriteClick}>UnFavourite</button>
-                  : <button className="btn btn-primary" onClick={this.handleFavoriteClick}>Favourite</button>
+                    isFavorite 
+                    ? <button className="btn btn-danger" onClick={this.handleUnFavoriteClick}>UnFavourite</button>
+                    : <button className="btn btn-primary" onClick={this.handleFavoriteClick}>Favourite</button>
                     
                   }
               </div>
+              
           </div>
+          <button className="btn btn-dark" onClick={this.handleDeleteClick}>X</button>
       </div>
     )
   }
